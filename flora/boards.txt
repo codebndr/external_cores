@@ -1,0 +1,19 @@
+#==========================Adafruit Flora======================#
+flora8.name=Adafruit Flora
+flora8.upload.protocol=avr109
+flora8.upload.maximum_size=28672
+flora8.upload.speed=57600
+flora8.upload.disable_flushing=true
+flora8.bootloader.low_fuses=0xff
+flora8.bootloader.high_fuses=0xd8
+flora8.bootloader.extended_fuses=0xcb
+flora8.bootloader.path=caterina
+flora8.bootloader.file=Caterina-Flora8.hex
+flora8.bootloader.unlock_bits=0x3F
+flora8.bootloader.lock_bits=0x2F
+flora8.build.mcu=atmega32u4
+flora8.build.f_cpu=8000000L
+flora8.build.vid=0x239A
+flora8.build.pid=0x8004
+flora8.build.core=arduino
+flora8.build.variant=flora
