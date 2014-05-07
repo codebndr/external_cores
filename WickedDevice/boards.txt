@@ -1,0 +1,18 @@
+wildfire.name=WildFire v2
+
+wildfire.upload.protocol=wiring
+wildfire.upload.maximum_size=122878
+wildfire.upload.speed=38400
+
+wildfire.bootloader.low_fuses=0xd7
+wildfire.bootloader.high_fuses=0xd8
+wildfire.bootloader.extended_fuses=0xfc
+wildfire.bootloader.path=stk500v2
+wildfire.bootloader.file=stk500boot_v2_wildfire.hex
+wildfire.bootloader.unlock_bits=0x3F
+wildfire.bootloader.lock_bits=0x0F
+
+wildfire.build.mcu=atmega1284p
+wildfire.build.f_cpu=16000000L
+wildfire.build.core=arduino:arduino
+wildfire.build.variant=wildfirev2
