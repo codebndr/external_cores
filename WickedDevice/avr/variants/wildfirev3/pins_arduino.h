@@ -57,40 +57,78 @@
 #define NUM_DIGITAL_PINS            32
 #define NUM_ANALOG_INPUTS           8
 
-#define analogInputToDigitalPin(p)  (((p) < 2) ? ((p) + 30) : (((p) < NUM_ANALOG_INPUTS) ? ((p) + 24) : -1))
-#define digitalPinHasPWM(p)         ((p) == 4 || (p) == 5 || (p) == 6 || (p) == 7 || (p) == 9 || (p) == 10 || (p) == 12 || (p) == 13)
+#define analogInputToDigitalPin(p)  ((p < 8) ? (p) + 24 : -1)
+#define digitalPinHasPWM(p)         (((p) > 3) && ((p) < 14) && ((p) != 7) && ((p) != 11))
 
-static const uint8_t SS   = 10;
+static const uint8_t SS   = 9;
 static const uint8_t MOSI = 11;
 static const uint8_t MISO = 12;
 static const uint8_t SCK  = 13;
 
-static const uint8_t SDA = 17;
-static const uint8_t SCL = 16;
-static const uint8_t LED_BUILTIN = 13;
+static const uint8_t SDA = 19;
+static const uint8_t SCL = 20;
+static const uint8_t LED_BUILTIN = 6;
 
-static const uint8_t A0 = 14;
-static const uint8_t A1 = 15;
-static const uint8_t A2 = 16;
-static const uint8_t A3 = 17;
-static const uint8_t A4 = 18;
-static const uint8_t A5 = 19;
-static const uint8_t A6 = 20;
-static const uint8_t A7 = 21;
+static const uint8_t A0 = 24;
+static const uint8_t A1 = 25;
+static const uint8_t A2 = 26;
+static const uint8_t A3 = 27;
+static const uint8_t A4 = 28;
+static const uint8_t A5 = 29;
+static const uint8_t A6 = 30;
+static const uint8_t A7 = 31;
 
 #define digitalPinToPCICR(p)    (((p) >= 0 && (p) < NUM_DIGITAL_PINS) ? (&PCICR) : ((uint8_t *)0))
-#define digitalPinToPCICRbit(p) (((p) <= 7) ? 3 : (((p) <= 15) ? 1 : (((p) <= 23) ? 2 : 0)))
-#define digitalPinToPCMSK(p)    (((p) <= 7) ? (&PCMSK3) : (((p) <= 15) ? (&PCMSK1) : (((p) <= 23) ? (&PCMSK2) : (&PCMSK0) )))
+#define digitalPinToPCICRbit(p) ((p) > 23 ? 0 : (((p) > 13 && (p) < 21) || ((p) == 7) ? 2 : (((p) > 10) || ((p) == 9) || ((p) == 4) ? 1 : 3)))
+#define digitalPinToPCMSK(p)    ((p) < 32 ? ((p) > 23 ? (&PCMSK0) : (((p) > 13 && (p) < 21) || ((p) == 7) ? (&PCMSK2) : (((p) > 10) || ((p) == 9) || ((p) == 4) ? (&PCMSK1) : (&PCMSK3)))) : ((uint8_t *)0))
 
-// The special case here, created by keeping the SPI interface on Arduino Uno pin numbering.
-#define digitalPinToPCMSKbit(p) (((p) > 7 && (p) < 16) ? (((p) < 14 ? (p)+2 : (p)-6) % 8) : ((p) % 8))
+#ifndef ARDUINO_MAIN
+extern const uint8_t PROGMEM digital_pin_to_PCMSK_bit_PGM;
+#endif
+
+#define digitalPinToPCMSKbit(p) (pgm_read_byte(digital_pin_to_PCMSK_bit_PGM + p))
 
 #ifdef ARDUINO_MAIN
-
 #define PA 1
 #define PB 2
 #define PC 3
 #define PD 4
+
+// this was just too complicated to express as a formula, and we have plenty of flash memory 
+const uint8_t PROGMEM digital_pin_to_PCMSK_bit_PGM[] = {
+  0,
+  1,
+  2,
+  3,
+  3,
+  5,
+  6,
+  3,
+  4,
+  4,
+  7,
+  5,
+  6,
+  7,
+  4,
+  2,
+  5,
+  6,
+  7,
+  1,
+  0,
+  0,
+  2,
+  1,
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7
+};
 
 // these arrays map port names (e.g. port B) to the
 // appropriate addresses for various functions (e.g. reading
@@ -124,114 +162,117 @@ const uint16_t PROGMEM port_to_input_PGM[] =
 
 const uint8_t PROGMEM digital_pin_to_port_PGM[] =
 {
-	PD, /* 0 */
-	PD,
-	PD,
-	PD,
-	PD,
-	PD,
-	PD,
-	PD,
-	PB, /* 8 */
-	PB,
-	PB,
-	PB,
-	PB,
-	PB,
-	PA,
-	PA,
-	PA, /* 16 */
-	PA,
-	PA,		
-	PA,	
-	PA,	
-	PA,	
-	PB, 
-	PB,	
-	PC, /* 24 */
-	PC,	
-	PC,
-	PC,	
-	PC,
-	PC,	
-	PC,
-	PC  /* 31 */
+  PD, 
+  PD,
+  PD,
+  PD,
+  PB,
+  PD,
+  PD,
+  PC,
+  
+  PD, 
+  PB,
+  PD,
+  PB,
+  PB,
+  PB,
+  PC,
+  PC,
+  
+  PC,  
+  PC,
+  PC,
+  PC,
+  PC,
+  PB,
+  PB,
+  PB,
+  
+  PA, 
+  PA,
+  PA,
+  PA,
+  PA,
+  PA,
+  PA,
+  PA
 };
 
 
 const uint8_t PROGMEM digital_pin_to_bit_mask_PGM[] =
 {
-	_BV(0), /* 0, port D */
-	_BV(1),
-	_BV(2),
-	_BV(3),
-	_BV(4),
-	_BV(5),
-	_BV(6),
-	_BV(7),
-	_BV(2), /* 8, port B */
-	_BV(3),
-	_BV(4),
-	_BV(5),
-	_BV(6),
-	_BV(7), 
-	_BV(0), /* 14, port A */
-	_BV(1),
-	_BV(2), 
-	_BV(3),
-	_BV(4),
-	_BV(5),
-	_BV(6),
-	_BV(7),
-	_BV(0), /* 22, port B */
-	_BV(1),
-	_BV(6), /* 24, port C */
-	_BV(7),
-	_BV(1),
-	_BV(0),
-	_BV(2),
-	_BV(3),
-	_BV(4), 
-	_BV(5),	
+  _BV(0), // PD
+  _BV(1), // PD
+  _BV(2), // PD
+  _BV(3), // PD
+  _BV(3), // PB
+  _BV(5), // PD
+  _BV(6), // PD
+  _BV(3), // PC
+  _BV(4), // PD
+  _BV(4), // PB
+  _BV(7), // PD
+  _BV(5), // PB
+  _BV(6), // PB
+  _BV(7), // PB
+  _BV(4), // PC
+  _BV(2), // PC
+  _BV(5), // PC
+  _BV(6), // PC
+  _BV(7), // PC
+  _BV(1), // PC
+  _BV(0), // PC
+  _BV(0), // PB
+  _BV(2), // PB
+  _BV(1), // PB
+  _BV(0), // PA
+  _BV(1), // PA
+  _BV(2), // PA
+  _BV(3), // PA
+  _BV(4), // PA
+  _BV(5), // PA
+  _BV(6), // PA
+  _BV(7)  // PA
 };
 
 const uint8_t PROGMEM digital_pin_to_timer_PGM[] =
 {
-	NOT_ON_TIMER, 	/* 0  - PD0 */
-	NOT_ON_TIMER, 	/* 1  - PD1 */
-	NOT_ON_TIMER, 	/* 2  - PD2 */
-	NOT_ON_TIMER, 	/* 3  - PD3 */
-	TIMER1B,      	/* 4  - PD4 */
-	TIMER1A,       	/* 5  - PD5 */
-	TIMER2B,       	/* 6  - PD6 */
-	TIMER2A,       	/* 7  - PD7 */
+  NOT_ON_TIMER, // PD0
+  NOT_ON_TIMER, // PD1
+  NOT_ON_TIMER, // PD2
+  NOT_ON_TIMER, // PD3
+  TIMER0A,      // PB3
+  TIMER1A,      // PD5
+  TIMER2B,      // PD6
+  NOT_ON_TIMER, // PC3
 
-	NOT_ON_TIMER, 	/* 8  - PB2 */
-	TIMER0A,     	  /* 9  - PB3 */
-	TIMER0B,        /* 10 - PB4 */
-	NOT_ON_TIMER, 	/* 11 - PB5 */
-	TIMER3A,        /* 12 - PB6 */
-	TIMER3B,        /* 13 - PB7 */
-	NOT_ON_TIMER, 	/* 14 - PA0 */
-	NOT_ON_TIMER, 	/* 15 - PA1 */	
+  TIMER1B,      // PD4
+  TIMER0B,      // PB4
+  TIMER2A,      // PD7
+  NOT_ON_TIMER, // PB5
+  TIMER3A,      // PB6
+  TIMER3B,      // PB7
+  NOT_ON_TIMER, // PC4
+  NOT_ON_TIMER, // PC2
 
-	NOT_ON_TIMER, 	/* 16 - PA2 */
-	NOT_ON_TIMER,   /* 17 - PA3 */
-	NOT_ON_TIMER,   /* 18 - PA4 */
-	NOT_ON_TIMER,   /* 19 - PA5 */
-	NOT_ON_TIMER,   /* 20 - PA6 */
-	NOT_ON_TIMER,   /* 21 - PA7 */
-	NOT_ON_TIMER,   /* 22 - PB0 */
-	NOT_ON_TIMER,   /* 23 - PB1 */
-	
-	NOT_ON_TIMER,   /* 24 - PC6 */
-	NOT_ON_TIMER,   /* 25 - PC7 */
-	NOT_ON_TIMER,   /* 26 - PC1 */
-	NOT_ON_TIMER,   /* 27 - PC0 */
-	NOT_ON_TIMER,   /* 28 - PC2 */
-	NOT_ON_TIMER,   /* 29 - PC3 */
-	NOT_ON_TIMER,   /* 30 - PC4 */
-	NOT_ON_TIMER    /* 31 - PC5 */
+  NOT_ON_TIMER, // PC5
+  NOT_ON_TIMER, // PC6
+  NOT_ON_TIMER, // PC7
+  NOT_ON_TIMER, // PC1
+  NOT_ON_TIMER, // PC0
+  NOT_ON_TIMER, // PB0
+  NOT_ON_TIMER, // PB2
+  NOT_ON_TIMER, // PB1
+
+  NOT_ON_TIMER, // PA0
+  NOT_ON_TIMER, // PA1
+  NOT_ON_TIMER, // PA2
+  NOT_ON_TIMER, // PA3
+  NOT_ON_TIMER, // PA4
+  NOT_ON_TIMER, // PA5
+  NOT_ON_TIMER, // PA6
+  NOT_ON_TIMER, // PA7
 };
 
 #endif // ARDUINO_MAIN
