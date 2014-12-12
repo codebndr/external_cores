@@ -1,0 +1,44 @@
+# Arduino Compatible Hardware Definition
+# for Wiring hardware.
+#
+# Author: Brett Hagman <bhagman@wiring.org.co>
+###########################################
+
+# Wiring S
+# http://wiring.org.co/
+
+WiringS.name=Wiring S @ 16 MHz
+WiringS.upload.protocol=wiring
+WiringS.upload.maximum_size=63488
+WiringS.upload.speed=115200
+WiringS.bootloader.low_fuses=0xf7
+WiringS.bootloader.high_fuses=0xd4
+WiringS.bootloader.extended_fuses=0xfd
+WiringS.bootloader.path=Wiring
+WiringS.bootloader.file=WiringBoot_WiringS.hex
+WiringS.bootloader.unlock_bits=0x3f
+WiringS.bootloader.lock_bits=0x2f
+WiringS.build.mcu=atmega644p
+WiringS.build.f_cpu=16000000L
+WiringS.build.core=arduino:arduino
+WiringS.build.variant=atmegaxx4:atmegaxx4-generic
+
+# Wiring S Play Shield (Arduino Shield Standard compatible)
+# http://wiring.org.co/
+
+WiringSPlayShield.name=Wiring S with Play Shield @ 16 MHz
+WiringSPlayShield.upload.protocol=wiring
+WiringSPlayShield.upload.maximum_size=63488
+WiringSPlayShield.upload.speed=115200
+WiringSPlayShield.bootloader.low_fuses=0xf7
+WiringSPlayShield.bootloader.high_fuses=0xd4
+WiringSPlayShield.bootloader.extended_fuses=0xfd
+WiringSPlayShield.bootloader.path=Wiring
+WiringSPlayShield.bootloader.file=WiringBoot_WiringS.hex
+WiringSPlayShield.bootloader.unlock_bits=0x3f
+WiringSPlayShield.bootloader.lock_bits=0x2f
+WiringSPlayShield.build.mcu=atmega644p
+WiringSPlayShield.build.f_cpu=16000000L
+WiringSPlayShield.build.core=arduino:arduino
+WiringSPlayShield.build.variant=Wiring:WiringSPlayShield
+
