@@ -1,0 +1,10 @@
+.DS_Store
+
+# backups
+*bak
+*.bck
+*.log
+*~
+
+# Artistic Style backup - http://astyle.sourceforge.net/
+*.orig

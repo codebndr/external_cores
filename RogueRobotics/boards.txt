@@ -1,0 +1,47 @@
+# Arduino Compatible Hardware Definition
+# for Rogue Robotics boards.
+#
+# Author: Brett Hagman <bhagman@wiring.org.co>
+###########################################
+
+# Rogue Robotics LEDHead (Atmel ATmega644PA based)
+# Uses "wiring" protocol (i.e. stk500v2 based WiringBoot)
+# http://roguerobotics.com/
+
+LEDHead-16MHz.name=Rogue Robotics LEDHead @ 16MHz
+LEDHead-16MHz.upload.protocol=wiring
+LEDHead-16MHz.upload.maximum_size=63488
+LEDHead-16MHz.upload.speed=115200
+LEDHead-16MHz.build.mcu=atmega644p
+LEDHead-16MHz.build.f_cpu=16000000L
+LEDHead-16MHz.build.core=arduino:arduino
+LEDHead-16MHz.build.variant=RogueRobotics:ATmega644P-to-ATmega328PA-Arduino
+LEDHead-16MHz.bootloader.low_fuses=0xf7
+LEDHead-16MHz.bootloader.high_fuses=0xd4
+LEDHead-16MHz.bootloader.extended_fuses=0xfd
+LEDHead-16MHz.bootloader.path=LEDHead
+LEDHead-16MHz.bootloader.file=WiringBoot_LEDHead.hex
+LEDHead-16MHz.bootloader.unlock_bits=0x3f
+LEDHead-16MHz.bootloader.lock_bits=0x2f
+
+
+# Rogue Robotics rEDI (Atmel ATmega644PA based)
+# Uses "wiring" protocol (i.e. stk500v2 based WiringBoot)
+# http://roguerobotics.com/
+
+rEDI-16MHz.name=Rogue Robotics rEDI @ 16MHz
+rEDI-16MHz.upload.protocol=wiring
+rEDI-16MHz.upload.maximum_size=63488
+rEDI-16MHz.upload.speed=115200
+rEDI-16MHz.build.mcu=atmega644p
+rEDI-16MHz.build.f_cpu=16000000L
+rEDI-16MHz.build.core=arduino:arduino
+rEDI-16MHz.build.variant=RogueRobotics:ATmega644P-to-ATmega328PA-Arduino
+rEDI-16MHz.bootloader.low_fuses=0xf7
+rEDI-16MHz.bootloader.high_fuses=0xd4
+rEDI-16MHz.bootloader.extended_fuses=0xfd
+rEDI-16MHz.bootloader.path=rEDI
+rEDI-16MHz.bootloader.file=WiringBoot_rEDI.hex
+rEDI-16MHz.bootloader.unlock_bits=0x3f
+rEDI-16MHz.bootloader.lock_bits=0x2f
+

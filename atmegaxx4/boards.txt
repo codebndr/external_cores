@@ -1,0 +1,45 @@
+# Arduino Compatible Hardware Definition
+# for Atmel AVR ATmegaxx4 series.
+#
+# Author: Brett Hagman <bhagman@wiring.org.co>
+###########################################
+
+# Baseline ATmega644PA (Based on Wiring S)
+# Uses "wiring" protocol (i.e. stk500v2 based WiringBoot)
+# http://wiring.org.co/
+
+ATmega644PA-Generic-16MHz.name=Atmel ATmega644PA Generic @ 16MHz
+ATmega644PA-Generic-16MHz.upload.protocol=wiring
+ATmega644PA-Generic-16MHz.upload.maximum_size=63488
+ATmega644PA-Generic-16MHz.upload.speed=115200
+ATmega644PA-Generic-16MHz.build.mcu=atmega644p
+ATmega644PA-Generic-16MHz.build.f_cpu=16000000L
+ATmega644PA-Generic-16MHz.build.core=arduino:arduino
+ATmega644PA-Generic-16MHz.build.variant=atmegaxx4-generic
+ATmega644PA-Generic-16MHz.bootloader.low_fuses=0xf7
+ATmega644PA-Generic-16MHz.bootloader.high_fuses=0xd4
+ATmega644PA-Generic-16MHz.bootloader.extended_fuses=0xfd
+ATmega644PA-Generic-16MHz.bootloader.path=Wiring
+ATmega644PA-Generic-16MHz.bootloader.file=WiringBoot_WiringS.hex
+ATmega644PA-Generic-16MHz.bootloader.unlock_bits=0x3f
+ATmega644PA-Generic-16MHz.bootloader.lock_bits=0x2f
+
+
+# Baseline ATmega1284P (Based on Wattage OneWatt)
+# Uses "arduino" protocol (i.e. stk500 based optiboot)
+
+ATmega1284P-Generic-16MHz.name=Atmel ATmega1284P Generic @ 16MHz
+ATmega1284P-Generic-16MHz.upload.protocol=arduino
+ATmega1284P-Generic-16MHz.upload.maximum_size=130048
+ATmega1284P-Generic-16MHz.upload.speed=115200
+ATmega1284P-Generic-16MHz.build.mcu=atmega1284p
+ATmega1284P-Generic-16MHz.build.f_cpu=16000000L
+ATmega1284P-Generic-16MHz.build.core=arduino:arduino
+ATmega1284P-Generic-16MHz.build.variant=atmegaxx4-generic
+ATmega1284P-Generic-16MHz.bootloader.low_fuses=0xf7
+ATmega1284P-Generic-16MHz.bootloader.high_fuses=0xde
+ATmega1284P-Generic-16MHz.bootloader.extended_fuses=0xff
+ATmega1284P-Generic-16MHz.bootloader.path=optiboot
+ATmega1284P-Generic-16MHz.bootloader.file=optiboot_generic_atmega1284p.hex
+ATmega1284P-Generic-16MHz.bootloader.unlock_bits=0x3f
+ATmega1284P-Generic-16MHz.bootloader.lock_bits=0x0f
