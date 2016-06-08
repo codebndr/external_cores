@@ -1,0 +1,14 @@
+jtagicemki.name=JTAG ICE mkI
+jtagicemki.communication=serial
+jtagicemki.protocol=jtag1
+
+usbtinyisp.name=USBtinyISP
+usbtinyisp.protocol=usbtiny
+
+arduinoisp.name=Arduino as ISP
+arduinoisp.communication=serial
+arduinoisp.protocol=arduino
+arduinoisp.speed=19200
+
+
+
