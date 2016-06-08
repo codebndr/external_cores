@@ -1,0 +1,475 @@
+Archive member included because of file (symbol)
+
+c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr5\libgcc.a(_exit.o)
+                              c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm32.o (exit)
+c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr5\libgcc.a(_copy_data.o)
+                              boot_SmartInventor.o (__do_copy_data)
+c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr5\libgcc.a(_clear_bss.o)
+                              boot_SmartInventor.o (__do_clear_bss)
+c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5\libc.a(ee_rb.1C1D1E.o)
+                              boot_SmartInventor.o (__eeprom_read_byte_1C1D1E)
+c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5\libc.a(ee_wb.1C1D1E.o)
+                              boot_SmartInventor.o (__eeprom_write_byte_1C1D1E)
+
+Allocating common symbols
+Common symbol       size              file
+
+address             0x2               boot_SmartInventor.o
+buff                0x100             boot_SmartInventor.o
+length              0x2               boot_SmartInventor.o
+i                   0x1               boot_SmartInventor.o
+address_high        0x1               boot_SmartInventor.o
+flags               0x1               boot_SmartInventor.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00020000         xr
+data             0x00800060         0x0000ffa0         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+fuse             0x00820000         0x00000400         rw !x
+lock             0x00830000         0x00000400         rw !x
+signature        0x00840000         0x00000400         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm32.o
+LOAD boot_SmartInventor.o
+LOAD c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5\libm.a
+LOAD c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr5\libgcc.a
+LOAD c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5\libc.a
+LOAD c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr5\libgcc.a
+Address of section .text set to 0x7800
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00007800      0x632
+ *(.vectors)
+ .vectors       0x00007800       0x54 c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm32.o
+                0x00007800                __vectors
+                0x00007800                __vector_default
+ *(.vectors)
+ *(.progmem.gcc*)
+ *(.progmem*)
+                0x00007854                . = ALIGN (0x2)
+                0x00007854                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x00007854        0x0 linker stubs
+ *(.trampolines*)
+                0x00007854                __trampolines_end = .
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x00007854                __ctors_start = .
+ *(.ctors)
+                0x00007854                __ctors_end = .
+                0x00007854                __dtors_start = .
+ *(.dtors)
+                0x00007854                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x00007854        0x0 c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm32.o
+                0x00007854                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x00007854        0xc c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm32.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x00007860       0x16 c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr5\libgcc.a(_copy_data.o)
+                0x00007860                __do_copy_data
+ .init4         0x00007876       0x10 c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr5\libgcc.a(_clear_bss.o)
+                0x00007876                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x00007886        0x8 c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm32.o
+ *(.init9)
+ *(.text)
+ .text          0x0000788e        0x4 c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm32.o
+                0x0000788e                __vector_1
+                0x0000788e                __vector_12
+                0x0000788e                __bad_interrupt
+                0x0000788e                __vector_6
+                0x0000788e                __vector_3
+                0x0000788e                __vector_11
+                0x0000788e                __vector_13
+                0x0000788e                __vector_17
+                0x0000788e                __vector_19
+                0x0000788e                __vector_7
+                0x0000788e                __vector_5
+                0x0000788e                __vector_4
+                0x0000788e                __vector_9
+                0x0000788e                __vector_2
+                0x0000788e                __vector_15
+                0x0000788e                __vector_8
+                0x0000788e                __vector_14
+                0x0000788e                __vector_10
+                0x0000788e                __vector_16
+                0x0000788e                __vector_18
+                0x0000788e                __vector_20
+ .text          0x00007892      0x576 boot_SmartInventor.o
+                0x000079a8                getNch
+                0x000079f4                puthex
+                0x000079ba                gethexnib
+                0x00007892                putch
+                0x000078cc                getch
+                0x0000789a                flash_led
+                0x00007934                nothing_response
+                0x000079da                gethex
+                0x00007a1e                main
+                0x00007968                byte_response
+ .text          0x00007e08        0x0 c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr5\libgcc.a(_exit.o)
+ .text          0x00007e08        0x0 c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr5\libgcc.a(_copy_data.o)
+ .text          0x00007e08        0x0 c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr5\libgcc.a(_clear_bss.o)
+ .text          0x00007e08        0x0 c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5\libc.a(ee_rb.1C1D1E.o)
+ .text          0x00007e08        0x0 c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5\libc.a(ee_wb.1C1D1E.o)
+                0x00007e08                . = ALIGN (0x2)
+ *(.text.*)
+ .text.libgcc   0x00007e08        0x0 c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00007e08        0x0 c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00007e08        0x0 c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr5\libgcc.a(_clear_bss.o)
+ .text.eeprom   0x00007e08       0x10 c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5\libc.a(ee_rb.1C1D1E.o)
+                0x00007e08                __eeprom_read_byte_1C1D1E
+ .text.eeprom   0x00007e18       0x18 c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5\libc.a(ee_wb.1C1D1E.o)
+                0x00007e18                __eeprom_write_byte_1C1D1E
+                0x00007e30                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x00007e30        0x0 c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr5\libgcc.a(_exit.o)
+                0x00007e30                exit
+                0x00007e30                _exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x00007e30        0x2 c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr5\libgcc.a(_exit.o)
+ *(.fini0)
+                0x00007e32                _etext = .
+
+.data           0x00800060        0x2 load address 0x00007e32
+                0x00800060                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x00800060        0x0 c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm32.o
+ .data          0x00800060        0x1 boot_SmartInventor.o
+                0x00800060                pagesz
+ .data          0x00800061        0x0 c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr5\libgcc.a(_exit.o)
+ .data          0x00800061        0x0 c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr5\libgcc.a(_copy_data.o)
+ .data          0x00800061        0x0 c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr5\libgcc.a(_clear_bss.o)
+ .data          0x00800061        0x0 c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5\libc.a(ee_rb.1C1D1E.o)
+ .data          0x00800061        0x0 c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5\libc.a(ee_wb.1C1D1E.o)
+ *(.data*)
+ *(.rodata)
+ *(.rodata*)
+ *(.gnu.linkonce.d*)
+                0x00800062                . = ALIGN (0x2)
+ *fill*         0x00800061        0x1 00
+                0x00800062                _edata = .
+                0x00800062                PROVIDE (__data_end, .)
+
+.bss            0x00800062      0x10b load address 0x00007e34
+                0x00800062                PROVIDE (__bss_start, .)
+ *(.bss)
+ .bss           0x00800062        0x0 c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm32.o
+ .bss           0x00800062        0x4 boot_SmartInventor.o
+                0x00800062                bootuart
+                0x00800063                error_count
+                0x00800064                app_start
+ .bss           0x00800066        0x0 c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr5\libgcc.a(_exit.o)
+ .bss           0x00800066        0x0 c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr5\libgcc.a(_copy_data.o)
+ .bss           0x00800066        0x0 c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr5\libgcc.a(_clear_bss.o)
+ .bss           0x00800066        0x0 c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5\libc.a(ee_rb.1C1D1E.o)
+ .bss           0x00800066        0x0 c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5\libc.a(ee_wb.1C1D1E.o)
+ *(.bss*)
+ *(COMMON)
+ COMMON         0x00800066      0x107 boot_SmartInventor.o
+                0x00800066                address
+                0x00800068                buff
+                0x00800168                length
+                0x0080016a                i
+                0x0080016b                address_high
+                0x0080016c                flags
+                0x0080016d                PROVIDE (__bss_end, .)
+                0x00007e32                __data_load_start = LOADADDR (.data)
+                0x00007e34                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x0080016d        0x0
+                0x0080016d                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x0080016d                PROVIDE (__noinit_end, .)
+                0x0080016d                _end = .
+                0x0080016d                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.stab           0x00000000      0x378
+ *(.stab)
+ .stab          0x00000000      0x378 c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm32.o
+
+.stabstr        0x00000000       0x5f
+ *(.stabstr)
+ .stabstr       0x00000000       0x5f c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm32.o
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment
+ *(.comment)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000       0x20
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x20 boot_SmartInventor.o
+
+.debug_pubnames
+                0x00000000      0x10a
+ *(.debug_pubnames)
+ .debug_pubnames
+                0x00000000      0x10a boot_SmartInventor.o
+
+.debug_info     0x00000000      0x844
+ *(.debug_info)
+ .debug_info    0x00000000      0x844 boot_SmartInventor.o
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev   0x00000000      0x291
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000      0x291 boot_SmartInventor.o
+
+.debug_line     0x00000000      0x779
+ *(.debug_line)
+ .debug_line    0x00000000      0x779 boot_SmartInventor.o
+
+.debug_frame    0x00000000       0xb0
+ *(.debug_frame)
+ .debug_frame   0x00000000       0xb0 boot_SmartInventor.o
+
+.debug_str      0x00000000      0x230
+ *(.debug_str)
+ .debug_str     0x00000000      0x230 boot_SmartInventor.o
+                                0x27b (size before relaxing)
+
+.debug_loc      0x00000000      0x238
+ *(.debug_loc)
+ .debug_loc     0x00000000      0x238 boot_SmartInventor.o
+
+.debug_macinfo
+ *(.debug_macinfo)
+OUTPUT(boot_SmartInventor.elf elf32-avr)
+LOAD linker stubs
+
+Cross Reference Table
+
+Symbol                                            File
+__bad_interrupt                                   c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm32.o
+__bss_end                                         c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr5\libgcc.a(_clear_bss.o)
+__bss_start                                       c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr5\libgcc.a(_clear_bss.o)
+__data_end                                        c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr5\libgcc.a(_copy_data.o)
+__data_load_start                                 c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr5\libgcc.a(_copy_data.o)
+__data_start                                      c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr5\libgcc.a(_copy_data.o)
+__do_clear_bss                                    c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr5\libgcc.a(_clear_bss.o)
+                                                  boot_SmartInventor.o
+__do_copy_data                                    c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr5\libgcc.a(_copy_data.o)
+                                                  boot_SmartInventor.o
+__eeprom_read_byte_1C1D1E                         c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5\libc.a(ee_rb.1C1D1E.o)
+                                                  boot_SmartInventor.o
+__eeprom_write_byte_1C1D1E                        c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5\libc.a(ee_wb.1C1D1E.o)
+                                                  boot_SmartInventor.o
+__heap_end                                        c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm32.o
+__init                                            c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm32.o
+__stack                                           c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm32.o
+__vector_1                                        c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm32.o
+__vector_10                                       c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm32.o
+__vector_11                                       c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm32.o
+__vector_12                                       c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm32.o
+__vector_13                                       c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm32.o
+__vector_14                                       c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm32.o
+__vector_15                                       c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm32.o
+__vector_16                                       c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm32.o
+__vector_17                                       c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm32.o
+__vector_18                                       c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm32.o
+__vector_19                                       c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm32.o
+__vector_2                                        c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm32.o
+__vector_20                                       c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm32.o
+__vector_3                                        c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm32.o
+__vector_4                                        c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm32.o
+__vector_5                                        c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm32.o
+__vector_6                                        c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm32.o
+__vector_7                                        c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm32.o
+__vector_8                                        c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm32.o
+__vector_9                                        c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm32.o
+__vector_default                                  c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm32.o
+__vectors                                         c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm32.o
+_exit                                             c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr5\libgcc.a(_exit.o)
+address                                           boot_SmartInventor.o
+address_high                                      boot_SmartInventor.o
+app_start                                         boot_SmartInventor.o
+bootuart                                          boot_SmartInventor.o
+buff                                              boot_SmartInventor.o
+byte_response                                     boot_SmartInventor.o
+error_count                                       boot_SmartInventor.o
+exit                                              c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/avr5\libgcc.a(_exit.o)
+                                                  c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm32.o
+flags                                             boot_SmartInventor.o
+flash_led                                         boot_SmartInventor.o
+getNch                                            boot_SmartInventor.o
+getch                                             boot_SmartInventor.o
+gethex                                            boot_SmartInventor.o
+gethexnib                                         boot_SmartInventor.o
+i                                                 boot_SmartInventor.o
+length                                            boot_SmartInventor.o
+main                                              boot_SmartInventor.o
+                                                  c:/winavr-20071221/bin/../lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm32.o
+nothing_response                                  boot_SmartInventor.o
+pagesz                                            boot_SmartInventor.o
+putch                                             boot_SmartInventor.o
+puthex                                            boot_SmartInventor.o
