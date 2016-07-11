@@ -31,12 +31,13 @@
 
 #include <avr/pgmspace.h>
 
+#define __AVR_ATtiny25__ // used to get the proper pin responce, hopefully will not break everything :)
+
 #define NUM_DIGITAL_PINS		32
 #define NUM_ANALOG_INPUTS		8
 #define analogInputToDigitalPin(p)	((p < 8) ? (p) + 19 : -1)
 #define digitalPinHasPWM(p)	((p) == 29 || (p) == 30 || (p) == 5 || (p) == 7)
 #define TIMER0		8 // available on ATMega32/644
-//extern const int  analog_pin_to_pin[];
 #define analogPinToChannel(p)	((p) - 19)
 
 const static uint8_t SS   = 6;
@@ -198,7 +199,7 @@ const uint8_t PROGMEM digital_pin_to_timer_PGM[] = {
 	TIMER2,          /* 7 - PD7 */	
 	NOT_ON_TIMER,    /* 8 - PB0 */
 	NOT_ON_TIMER,    /* 9 - PB1 */
-   	 NOT_ON_TIMER,    /* 10 - PB2 */
+   	NOT_ON_TIMER,    /* 10 - PB2 */
 	NOT_ON_TIMER,       	 /* 11 - PB3 --- TIMER OC0 */
 	NOT_ON_TIMER, /* 12 - PB4 */
 	NOT_ON_TIMER, /* 13 - PB5 */
@@ -220,40 +221,6 @@ const uint8_t PROGMEM digital_pin_to_timer_PGM[] = {
 	TIMER1B, /* 29 - PA5 */
 	TIMER1A, /* 30 - PA6 */
 	NOT_ON_TIMER, /* 31 - PA7 */
-};
-
-const int analog_pin_to_pin[] = {
-	0,		// pin 0
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,		// pin 10
-	0,		// pin 11
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,		// 8, 16, 24
-	1,		// 9, 17, 25
-	2,		// 10, 18
-	3,		// 11, 19, 27
-	4,		// 12, 20, 28
-	5,		// 13, 21
-	6,		// 14, 22
-	7,		// 15, 23
-	0,
-	0,
-	0,
-	0		// pin 30
 };
 
 #endif
