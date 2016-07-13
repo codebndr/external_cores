@@ -38,7 +38,7 @@
 #define analogInputToDigitalPin(p)	((p < 8) ? (p) + 19 : -1)
 #define digitalPinHasPWM(p)	((p) == 29 || (p) == 30 || (p) == 5 || (p) == 7)
 #define TIMER0		8 // available on ATMega32/644
-#define analogPinToChannel(p)	((p) - 19)
+#define analogPinToChannel(p)	((p) - 16) // was 19
 
 const static uint8_t SS   = 6;
 const static uint8_t MOSI = 8;
