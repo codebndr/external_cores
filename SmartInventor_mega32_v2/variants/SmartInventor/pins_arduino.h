@@ -31,22 +31,24 @@
 
 #include <avr/pgmspace.h>
 
-#define __AVR_ATtiny25__ // used to get the proper pin responce, hopefully will not break everything :)
+#define NUM_DIGITAL_PINS            32
+#define NUM_ANALOG_INPUTS           8
+#define analogInputToDigitalPin(p)  ((p < 8) ? (p) + 19 : -1)
+#define digitalPinHasPWM(p)         ((p) == 29 || (p) == 30 || (p) == 5 || (p) == 7)
+#define TIMER0  8 // available on ATMega32/644
 
-#define NUM_DIGITAL_PINS		32
-#define NUM_ANALOG_INPUTS		8
-#define analogInputToDigitalPin(p)	((p < 8) ? (p) + 19 : -1)
-#define digitalPinHasPWM(p)	((p) == 29 || (p) == 30 || (p) == 5 || (p) == 7)
-#define TIMER0		8 // available on ATMega32/644
-#define analogPinToChannel(p)	((p) - 16) // was 19
+#define CB_Analog(p)	((p) - 19)
+
+#define BOARD_TYPE  0 // rokitboard type(same mcu)
 
 const static uint8_t SS   = 6;
 const static uint8_t MOSI = 8;
 const static uint8_t MISO = 9;
 const static uint8_t SCK  = 10;
 
-#define SDA 11
-#define SCL 12
+static const uint8_t SDA = 12;  
+static const uint8_t SCL = 11;  
+static const uint8_t LED_BUILTIN = 18;  
 
 const static uint8_t A0 = 19;     
 const static uint8_t A1 = 20;
@@ -199,7 +201,7 @@ const uint8_t PROGMEM digital_pin_to_timer_PGM[] = {
 	TIMER2,          /* 7 - PD7 */	
 	NOT_ON_TIMER,    /* 8 - PB0 */
 	NOT_ON_TIMER,    /* 9 - PB1 */
-   	NOT_ON_TIMER,    /* 10 - PB2 */
+   	 NOT_ON_TIMER,    /* 10 - PB2 */
 	NOT_ON_TIMER,       	 /* 11 - PB3 --- TIMER OC0 */
 	NOT_ON_TIMER, /* 12 - PB4 */
 	NOT_ON_TIMER, /* 13 - PB5 */
